@@ -1,0 +1,42 @@
+{
+  "name": "react-app-template",
+  "version": "1.0.0",
+  "description": "A ReactJS boilerplate template.",
+  "main": "index.js",
+  "scripts": {
+    "start": "parallelshell \"npm run start-api\" \"npm run start-ui\"",
+    "start-api": "NODE_ENV=development node api/server",
+    "start-ui": "http-server www -P http://localhost:3000",
+    "test": "npm run jshint && npm run jscs && npm run test-api && npm run test-ui",
+    "test-api": "mocha test/api/**/*",
+    "test-ui": "mocha --compilers js:babel-register test/ui/**/*",
+    "jshint": "jshint api ui",
+    "jscs": "jscs api ui",
+    "build": "npm run browserify && cp ui/index.html www/",
+    "watch": "watchify ui/app/main.jsx -t babelify -o www/app.js --verbose",
+    "browserify": "browserify ui/app/main.jsx -t babelify -o www/app.js"
+  },
+  "author": "Michael Allen",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
+    "babel-register": "^6.4.3",
+    "babelify": "^7.2.0",
+    "browserify": "^13.0.0",
+    "chai": "^3.4.1",
+    "http-server": "^0.8.5",
+    "jscs": "^2.9.0",
+    "jshint": "^2.9.1",
+    "mocha": "^2.3.4",
+    "parallelshell": "^2.0.0",
+    "sinon": "^1.17.2",
+    "watchify": "^3.7.0"
+  },
+  "dependencies": {
+    "isomorphic-fetch": "^2.2.1",
+    "react": "^0.14.6",
+    "react-dom": "^0.14.6",
+    "restify": "^4.0.3"
+  }
+}
