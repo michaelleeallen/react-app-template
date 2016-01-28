@@ -2,7 +2,8 @@
 ReactJS boilerplate teamplate.
 
 ## Scripts
-```
+
+```shell
 // build the ui 
 $ npm run build
 
